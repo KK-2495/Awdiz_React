@@ -24,7 +24,7 @@ const Login = () => {
             toast.success(response.data.message);
           }
         } catch (error) {
-          toast.error("response not found");
+          toast.error(error.response.data.message);
         }
       }else{
         toast.error("Email and password required to login");
