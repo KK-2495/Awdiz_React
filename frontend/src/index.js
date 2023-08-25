@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <Toaster
-      position="top-left"
+      position="bottom-right"
       reverseOrder={false}
       gutter={8}
       containerClassName=""
