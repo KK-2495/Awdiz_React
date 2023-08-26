@@ -11,12 +11,15 @@ import Effect4 from './Components/Effect4';
 import MultiProduct from './Components/MultiProduct';
 import SingleProduct from './Components/SingleProduct';
 import Mapping from './Components/Mapping';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Props from './Components/Props';
 import StateEffect from './Components/StateEffect';
 import DynamicStyle from './Components/DynamicStyle';
+import { AuthContext } from './Context/AuthContext';
 
 function App() {
+  const { state } = useContext(AuthContext);
+  console.log(state, "state from context");
   const [name, setName] = useState('Testing');
   return (
     <div className="App">

@@ -1,12 +1,16 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext";
 
 const Login = () => {
     const router = useNavigate();
 
     const [userData, setUserData] = useState({email: "", password: ""});
+
+    const { dispatch,state } = useContext(AuthContext);
+    console.log(state,"state from context into login component")
 
     const handleChange = (event) =>{
       setUserData({...userData,[event.target.name]: event.target.value});
@@ -21,6 +25,11 @@ const Login = () => {
             password: userData.password
           });
           if(response.data.success){
+            dispatch({
+              type: "LOGIN",
+              payload: response.data.user
+            })
+            localStorage.setItem("userToken", JSON.stringify(response.data.token));
             toast.success(response.data.message);
           }
         } catch (error) {

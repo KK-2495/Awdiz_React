@@ -1,5 +1,6 @@
 import User from "../Models/User.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 
 export const register = async (req,res) =>{
@@ -33,8 +34,10 @@ export const login = async (req,res) =>{
 
         if(!pass) return res.status(400).json({status:400,success:false, message:"Incorrect password"});
         
-        return res.status(200).json({status:200,success:true,message:"Logged in successfully"});
+        const token = jwt.sign({ userId:response._id }, "mysecret");
+        console.log(token, "token")
+        return res.status(200).json({status:200,success:true,message:"Logged in successfully", user: response, token: token });
     } catch (error) {
-        return res.status(400),json({status:400, success:false, message:"Server error"})
+        return res.status(400).json({status:400, success:false, message:"Server error"})
     }
 }
