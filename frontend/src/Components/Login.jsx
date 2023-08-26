@@ -31,6 +31,7 @@ const Login = () => {
             })
             localStorage.setItem("userToken", JSON.stringify(response.data.token));
             toast.success(response.data.message);
+            router('/');
           }
         } catch (error) {
           toast.error(error.response.data.message);

@@ -16,3 +16,5 @@ mongoose.connect('mongodb+srv://Krish24:Krish%402495@cluster0.s8xz5ha.mongodb.ne
 .catch((err)=>console.log(err, "err"));
 
 app.listen(8000);
+
+console.log(1 + '2' + 3 - '4')
