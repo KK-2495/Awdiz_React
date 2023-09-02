@@ -16,6 +16,7 @@ import Props from './Components/Props';
 import StateEffect from './Components/StateEffect';
 import DynamicStyle from './Components/DynamicStyle';
 import { AuthContext } from './Context/AuthContext';
+import AddProduct from './Components/AddProduct';
 
 function App() {
   const { state } = useContext(AuthContext);
@@ -34,6 +35,7 @@ function App() {
       <Route exact path="/effect4" element={<Effect4 />} />
       <Route exact path="/multi-product" element={<MultiProduct />} />
       <Route exact path="/single-product/:id" element={<SingleProduct />} />
+      <Route exact path='/add-product' element={<AddProduct />} />
       <Route exact path="/props" element={<Props />} />
       <Route exact path="/state-effect" element={<StateEffect />} />
       <Route exact path="/dynamic-style" element={<DynamicStyle />} />
