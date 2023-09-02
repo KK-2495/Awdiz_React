@@ -18,7 +18,7 @@ const AddProduct = () => {
             try {
                 const response = await api.post("/add-product",{product})
                 if(response.data.success){
-                    product({name:"", category: "", image:"", price: ""})
+                    setProduct({name:"", category: "", image:"", price: ""})
                     toast.success(response.data.message);
                 }
             } catch (error) {
