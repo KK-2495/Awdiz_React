@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
-import { AuthProtected } from "./AuthProtected";
+import AuthProtected from "./AuthProtected"
 
 const SingleProduct = () => {
     const {id} = useParams();
   return (
-    // <AuthProtected>
+    <AuthProtected>
     <div>Product :{id}</div>
-    // </AuthProtected>
+     </AuthProtected>
   )
 }
 

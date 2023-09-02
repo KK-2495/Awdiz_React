@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
 
-function AuthProtected ({ children }) {
+export function AuthProtected ({ children }) {
 
-    const {state} = useContext(AuthContext);
+    const { state } = useContext(AuthContext);
 
     const router = useNavigate();
 
@@ -14,8 +14,10 @@ function AuthProtected ({ children }) {
         router("/login");
     }
     if(state?.user?.name){
-        toast.success(state?.user?.name);
-        return(children);
+        // toast.success(state?.user?.name);
+        return(
+            children
+            )
     }else{
         return(
             <>

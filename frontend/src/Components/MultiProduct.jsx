@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom"
 import api from "../ApiConfig";
-import product from "../../../backend/Models/product";
 
 const MultiProduct = () => {
     const router = useNavigate();
@@ -27,9 +26,9 @@ const MultiProduct = () => {
   return (
     <div>
         <h1>MultiProduct</h1>
-        {products?.length ? <div style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap" }}>
+        {products?.length ? <div>
                 {products.map((product) => (
-                    <div style={{ width: "30%", height: "300px", border: "2px solid black", marginBottom: '40px' }}>
+                    <div>
                         <img src={product.img} alt="Img" />
                         <h1>Product Name : {product.name}</h1>
                         <h4>Product Price : {product.price}</h4>

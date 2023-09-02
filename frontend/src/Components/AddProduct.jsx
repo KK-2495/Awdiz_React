@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { toast } from 'react-hot-toast';
 import api from '../ApiConfig/index';
+import AuthProtected from './AuthProtected';
 
 const AddProduct = () => {
 
@@ -30,6 +31,7 @@ const AddProduct = () => {
 
   return (
     <div>
+        <AuthProtected>
         <form onSubmit={handleSubmit}>
             <input type="text" placeholder='Product Name' name='name' onChange={handleChange} className='border-[1px] border-black outline-none mb-1' /> <br />
             <input type="text" placeholder='Category Name' name='category' onChange={handleChange}  className='border-[1px] border-black outline-none mb-1' /> <br />
@@ -37,6 +39,7 @@ const AddProduct = () => {
             <input type="number" placeholder='Set Your Price' name='price' onChange={handleChange}  className='border-[1px] border-black outline-none mb-1' /> <br />
             <input type="submit" value="Add Product" className='border-[1px] border-red-700 '  /> <br />
         </form>
+        </AuthProtected>
     </div>
   )
 }
